@@ -3,6 +3,7 @@
 require_once __DIR__ . '/movies.php';
 
 $aotParteUno = new Movie(
+  'https://cdn.chili.com/images/public/cms/59/af/02/29/59af0229-515d-479b-bde5-8026d9f0d724.jpg?width=800',
   'L\'attacco dei giganti - Il film - Parte 1: L\'arco e la freccia cremisi',
   '2015-05-12',
   'Tetsuro Araki',
@@ -13,6 +14,7 @@ $aotParteUno = new Movie(
 );
 
 $aotParteDue = new Movie(
+  'https://www.eventinews24.com/wp-content/uploads/2015/07/AttaccoGiganti2_POSTER_100x140-1200x1713.jpg',
   'L\'attacco dei giganti. Il film. Parte 2: Le ali della libertà',
   '2015-09-01',
   'Testuro Araki',
@@ -23,6 +25,7 @@ $aotParteDue = new Movie(
 );
 
 $aotParteTre = new Movie(
+  'https://images.everyeye.it/img-screenshot/dynit-v1-555416.jpg',
   'L\'attacco dei giganti: L\'urlo del risveglio',
   '2018-01-13',
   'Masashi Koizuka',
@@ -33,6 +36,7 @@ $aotParteTre = new Movie(
 );
 
 $aotParteQuattro = new Movie(
+  'https://m.media-amazon.com/images/M/MV5BMzQwZjZkMTktYzNkNC00ZWFlLWE4NGEtMjA3YTA4OTEyZWVkXkEyXkFqcGdeQXVyMTA5MTI0Mzc1._V1_FMjpg_UX850_.jpg',
   'Shingeki no Kyojin: Chronicle',
   'TBA',
   'Testuro Araki , Masashi Koizuka',
@@ -54,12 +58,14 @@ $aotParteQuattro = new Movie(
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="css/style.css">
   <title>PHP-OPP-1</title>
 </head>
 <body>
 
   <header>
-    <h1 class='text-center my-5'>FILMS</h1>
+    <h1 class='text-center py-5'>MOVIEFLIX</h1>
   </header>
 
 
@@ -69,18 +75,18 @@ $aotParteQuattro = new Movie(
         <div class="row">
 
           <div class="col-6 my-4">
-            <img class="w-75" src="https://cdn.chili.com/images/public/cms/59/af/02/29/59af0229-515d-479b-bde5-8026d9f0d724.jpg?width=800" alt="Poster AOT Parte 1">
+            <img class="w-75" src="<?php echo $aotParteUno->getPoster() ?>" alt="Poster AOT Parte 1">
           </div>
 
           <div class="col-6 my-4">
-            <h1>Titolo: </h1><span> 'L\'attacco dei giganti - Il film - Parte 1: L\'arco e la freccia cremisi',</span>
-            <h3>Data Uscita in Italia: </h3><span>'2015-05-12',</span>
-            <h3>Regia: </h3><span>'Tetsuro Araki',</span>
-            <h5>Genere: </h5><span>'Animazione',</span>
-            <h5>Durata: </h6><span>120</span>
-            <h5>Voto Metacritic</h5><span>'7,5/10',</span>
+            <h1>Titolo: </h1><p> </p>
+            <h5>Data Uscita in Italia: </h5><p><?php echo $aotParteUno->getDataUscita() ?></p>
+            <h5>Regia: </h5><p><?php echo $aotParteUno->getRegia() ?></p>
+            <h5>Genere: </h5><p><?php echo $aotParteUno->getGenere() ?></p>
+            <h5>Durata Minuti: </h6><p><?php echo $aotParteUno->getDurata() ?></p>
+            <h5>Voto Metacritic</h5><p><?php echo $aotParteUno->getVotoMetacritic() ?></p>
             <h5>Descrizione: </h5>
-            <p> 'Per oltre cento anni le alte mura che circondano Shiganshina hanno difeso la cittadina da un pericolo che gli abitanti si rifiutano persino di nominare. Chi desidera esplorare il mondo esterno è visto come un pazzo e guardato con disprezzo. Il giovane Eren si sente però come un animale in cattività e, sebbene avvenga spesso che le squadre inviate ritornino decimate, sogna di unirsi al Corpo di Ricerca per scoprire la realtà che lo circonda. Un giorno Eren sogna l\'attacco di esseri giganteschi e, anche se al risveglio ha rimosso ogni ricordo di quanto ha visto, gli resta addosso una stranissima sensazione. Poco più tardi accade l\'imprevisto: un immenso Titano apre una breccia nelle mura di protezione. Per Eren sarà uno shock senza precedenti...',</p>
+            <p><?php echo $aotParteUno->getDescrizioneFilm() ?></p>
           </div>
 
         </div>
@@ -92,11 +98,18 @@ $aotParteQuattro = new Movie(
         <div class="row">
 
           <div class="col-6 my-4">
-            <img class="w-75" src="https://www.eventinews24.com/wp-content/uploads/2015/07/AttaccoGiganti2_POSTER_100x140-1200x1713.jpg" alt="Poster AOT Parte 1">
+            <img class="w-75" src="<?php echo $aotParteDue->getPoster() ?>" alt="Poster AOT Parte 2">
           </div>
 
           <div class="col-6 my-4">
-  
+          <h1>Titolo: </h1><p> <?php echo $aotParteDue->getTitolo() ?></p>
+            <h5>Data Uscita in Italia: </h5><p><?php echo $aotParteDue->getDataUscita() ?></p>
+            <h5>Regia: </h5><p><?php echo $aotParteDue->getRegia() ?></p>
+            <h5>Genere: </h5><p><?php echo $aotParteDue->getGenere() ?></p>
+            <h5>Durata Minuti: </h6><p><?php echo $aotParteDue->getDurata() ?></p>
+            <h5>Voto Metacritic</h5><p><?php echo $aotParteDue->getVotoMetacritic() ?></p>
+            <h5>Descrizione: </h5>
+            <p><?php echo $aotParteDue->getDescrizioneFilm() ?></p>
           </div>
 
         </div>
@@ -108,11 +121,18 @@ $aotParteQuattro = new Movie(
         <div class="row">
 
           <div class="col-6 my-4">
-          <img class="w-75" src="https://images.everyeye.it/img-screenshot/dynit-v1-555416.jpg" alt="Poster AOT Parte 1">
+          <img class="w-75" src="<?php echo $aotParteTre->getPoster() ?>" alt="Poster AOT Parte 3">
           </div>
 
           <div class="col-6 my-4">
-
+          <h1>Titolo: </h1><p> <?php echo $aotParteTre->getTitolo() ?></p>
+            <h5>Data Uscita in Italia: </h5><p><?php echo $aotParteTre->getDataUscita() ?></p>
+            <h5>Regia: </h5><p><?php echo $aotParteTre->getRegia() ?></p>
+            <h5>Genere: </h5><p><?php echo $aotParteTre->getGenere() ?></p>
+            <h5>Durata Minuti: </h6><p><?php echo $aotParteTre->getDurata() ?></p>
+            <h5>Voto Metacritic</h5><p><?php echo $aotParteTre->getVotoMetacritic() ?></p>
+            <h5>Descrizione: </h5>
+            <p><?php echo $aotParteTre->getDescrizioneFilm() ?></p>
           </div>
 
         </div>
@@ -123,10 +143,17 @@ $aotParteQuattro = new Movie(
       <div class="container">
         <div class="row">
 
-          <div class="col-6 my-4"><img class="w-75" src="https://m.media-amazon.com/images/M/MV5BMzQwZjZkMTktYzNkNC00ZWFlLWE4NGEtMjA3YTA4OTEyZWVkXkEyXkFqcGdeQXVyMTA5MTI0Mzc1._V1_FMjpg_UX850_.jpg" alt="Poster AOT Parte 1"></div>
+          <div class="col-6 my-4"><img class="w-75" src="<?php echo $aotParteQuattro->getPoster() ?>" alt="Poster AOT Parte 4"></div>
 
           <div class="col-6 my-4">
-
+          <h1>Titolo: </h1><p> <?php echo $aotParteQuattro->getTitolo() ?></p>
+            <h5>Data Uscita in Italia: </h5><p><?php echo $aotParteQuattro->getDataUscita() ?></p>
+            <h5>Regia: </h5><p><?php echo $aotParteQuattro->getRegia() ?></p>
+            <h5>Genere: </h5><p><?php echo $aotParteQuattro->getGenere() ?></p>
+            <h5>Durata Minuti: </h6><p><?php echo $aotParteQuattro->getDurata() ?></p>
+            <h5>Voto Metacritic</h5><p><?php echo $aotParteQuattro->getVotoMetacritic() ?></p>
+            <h5>Descrizione: </h5>
+            <p><?php echo $aotParteQuattro->getDescrizioneFilm() ?></p>
           </div>
 
         </div>
